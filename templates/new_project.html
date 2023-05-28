@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content -%}
+ <div class="container">
+   <form method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="title">Назва статті</label>
+        <input required type="text" name='title' class="form-control" id="title" placeholder="Введіть назву вашої статті">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Виберіть категорію статті</label>
+        <select required class="form-control" name="category" id="exampleFormControlSelect1">
+         
+         <option value="Python">Python</option>
+       
+        </select>
+      </div>
+      <div class="form-group">
+        <textarea required class="form-control" name='text' id="exampleFormControlTextarea1" rows="10" placeholder="Введіть текст"></textarea>
+      </div>
+      <div class="form-group">
+         <label for="exampleFormControlFile1">Додайте ілюстрацію до статті</label>
+         <input type="file" class="form-control-file" name='image' id="exampleFormControlFile1">
+      </div>
+      {%for type, message in get_flashed_messages(True) %}
+        <div class="alert {{type}}"> {{message}} </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-dark btn-lg">Додати проєкт</button>
+    </form>
+ </div>
+ 
+{% endblock %}

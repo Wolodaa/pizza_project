@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <main class="container">
+        {% if current_user.id == project.user_id  %}
+            <h1 class="text-center my-5">{{project.title}}</h1>
+            <p>{{project.description}}</p>
+            <a class="btn btn-primary" href="{{project.link}}" role="button">Репозиторій проєкту</a>
+        {% else %}
+            <h1>Немає доступу</h1>
+        {% endif %}
+    </main>
+{% endblock content %}
