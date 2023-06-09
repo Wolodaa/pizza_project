@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\flask_learn-main"
+		},
+		{
+			"path": "..\\instance"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\templates"
+		}
+	],
+	"settings": {}
+}

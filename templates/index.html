@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+{% for type, message in get_flashed_messages(True) %}
+   <div class="alert {{type}} my-3 position-fixed top-0 end-0"> {{message}} </div>
+{% endfor %}
 <main class="container-fluid m-0 p-0">
     <div class="banner position-relative">
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
@@ -31,13 +33,33 @@
             </button>
           </div>
     </div>
-    <h1>Привіт із сервера!</h1>
+    <h1 class = 'text-center text-white'>Наше меню</h1>
     <!-- Головний контент сторінки -->
+    <div class="container">
+    <div class="row row-cols-1 row-cols-md-2">
+
+
     {% for pizza in pizzas %}
-    <div class="my-card">
-        {{pizza.title}}
+    <div class="col">
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="{{pizza.image}}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{pizza.title}}</h5>
+            <p class="card-text">{{pizza.description}}</p>
+            <h4 class="card-text">{{pizza.price}} грн</h4>
+            <a class="btn btn-warning" href="{{url_for('order',item_id = pizza.id)}}" role="button">Замовити</a>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
     {% endfor %}
+  </div>
+  </div>
 </main>
 {% endblock content %}
     

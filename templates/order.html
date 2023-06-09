@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container py-5">
+    <h1 class="text-center">Оформлення замовлення</h1>
+    <div class="card p-5 mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{pizza.image}}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{pizza.title}}</h5>
+              <p class="card-text">{{pizza.description}}</p>
+              <h4 class="card-text">{{pizza.price}} грн</h4>
+            </div>
+          </div>
+        </div>
+        <div class="row"> <form action="" method="POST">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Кількість</label>
+                <input required name="amount" type="number" class="form-control" id="exampleFormControlInput1">
+              </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Ім'я прізвище</label>
+                <input required name="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+              </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Номер телефону</label>
+                <input required name="phone" type="phone" class="form-control" id="exampleFormControlInput1" placeholder="+380 xx xxx xx xx">
+              </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Місто</label>
+                <input required name="city" type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+              </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Адреса</label>
+                <input required name="address" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Вулиця Будинок Номер квартири">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Коментар до заповнення</label>
+                <textarea name = "comment" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+            <button class="btn btn-warning  btn-lg" type="submit">
+                Оформити замовлення
+            </button>
+        </form></div>
+      </div>
+</main>
+{% endblock content %}
